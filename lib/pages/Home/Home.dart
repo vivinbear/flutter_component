@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import '../Clock/Clock.dart';
+import '../SearchList/SearchList.dart';
 
 class Home extends StatelessWidget {
   @override
@@ -12,12 +13,12 @@ class Home extends StatelessWidget {
         color: Colors.yellow,
         child: Column(
           children: <Widget>[
-            Container(
-              child: Text('banner'),
-              color: Colors.red,
-              width: double.infinity,
-              height: 100.0,
-            ),
+            // Container(
+            //   child: Text('banner'),
+            //   color: Colors.red,
+            //   width: double.infinity,
+            //   height: 100.0,
+            // ),
             Expanded(
               child: GridView.count(
                 mainAxisSpacing: 10.0,
@@ -31,8 +32,33 @@ class Home extends StatelessWidget {
                         MaterialPageRoute(builder: (contxt) => Clock()),
                       );
                     },
-                    child: Text('闹钟'),
-                  )
+                    child: Container(
+                      color: Colors.red,
+                      child: Center(
+                        child: Icon(
+                          Icons.timer,
+                          size: 45.0,
+                        ),
+                      ),
+                    ),
+                  ),
+                  GestureDetector(
+                    onTap: () {
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(builder: (contxt) => SearchList()),
+                      );
+                    },
+                    child: Container(
+                      color: Colors.red,
+                      child: Center(
+                        child: Icon(
+                          Icons.search,
+                          size: 45.0,
+                        ),
+                      ),
+                    ),
+                  ),
                 ],
               ),
             )
